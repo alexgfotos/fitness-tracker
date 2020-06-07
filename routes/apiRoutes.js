@@ -1,15 +1,66 @@
-var db = require("../models/workoutModel");
+const db = require("../models");
+const router = require("express").Router();
+const mongojs = require("mongojs");
 
-module.exports = function(app) {
-  app.get("/api/workout", function(req, res) {
-    db.workout.find({}).then(function(dbWorkout) {
+
+router.get("/api/workouts", (req, res) => {
+  db.Workout.find({})
+    .then((dbWorkouts) => {
       res.json(dbWorkouts);
-    });
-  });
+    })
+    .catch((err) => {
+      res.json(err);
+    })
+})
 
-  app.put("/api/images/:id", function(req, res) {
-    db.Exercise.updateOne({ _id: req.params.id }, { rating: req.body.rating }).then(function(dbImage) {
-      res.json(dbImage);
-    });
-  });
-};
+router.get("/api/workouts/range", (req, res) => {
+  let date = new Date().setDate(new Date().getDate()-7)
+  console.log("getting range for" + date);
+
+  db.Workout.find({ day: { $gte: date } })
+    .then((dbWorkouts) => {
+      res.json(dbWorkouts);
+    })
+    .catch((err) => {
+      res.json(err);
+    })
+})
+
+router.post("/api/workouts", ({ body }, res) => {
+  db.Workout.create(body)
+    .then((dbWorkouts) => {
+      res.json(dbWorkouts);
+    })
+    .catch((err) => {
+      res.json(err);
+    })
+})
+
+router.put("/api/workouts/:id", (req, res) => {
+  db.Workout.update(
+    {
+      _id: mongojs.ObjectID(req.params.id)
+    },
+    {
+      $push: {
+        exercises: req.body
+      }
+    },
+
+    (error, changed) => {
+      if (error) {
+        console.log(error);
+        res.send(error);
+      }
+      else {
+        console.log(changed);
+        res.send(changed);
+      }
+    }
+)
+})
+
+
+
+
+module.exports = router;
