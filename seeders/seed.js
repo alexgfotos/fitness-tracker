@@ -121,18 +121,18 @@ let workoutSeed = [
         sets: 4
       }
     ]
-  },
-  {
-    day: new Date().setDate(new Date().getDate()-1),
-    exercises: [
-      {
-        type: "resistance",
-        name: "Bench",
-        duration: 30,
-        distance: 2
-      }
-    ]
   }
+  // {
+  //   day: new Date().setDate(new Date().getDate()-1),
+  //   exercises: [
+  //     {
+  //       type: "resistance",
+  //       name: "Bench",
+  //       duration: 30,
+  //       distance: 2
+  //     }
+  //   ]
+  // }
 ];
 
 db.Workout.deleteMany({})
