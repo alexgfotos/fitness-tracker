@@ -13,13 +13,22 @@ body,
 }
 
 body {
+  background-image: url("./images/dumbbell-equipment-fitness-flatlay-669578.jpg");
+  background-size: cover;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.transbox {
+  margin: 50px;
+  padding: 10px;
+  background-color: #ffffff;
+  opacity: 0.8;
+}
+
 nav {
-  background-color: #5793fd;
+  background-color: grey;
   color: #ffffff;
-  height: 80px;
+  height: 60px;
   padding: 10px;
   line-height: 3;
   font-size: 1.2rem;
@@ -42,6 +51,7 @@ header {
 
 header h1 {
   transform: skewX(-2deg);
+  font-size: 50px;
 }
 
 select {
@@ -96,7 +106,7 @@ input {
 }
 
 .wrapper {
-  background-color: #f2f8ff;
+  background-color:rgba(255,255,255,0.7);
   padding-bottom: 100px;
 }
 
