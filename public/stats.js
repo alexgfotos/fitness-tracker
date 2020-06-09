@@ -58,7 +58,7 @@ function populateChart(data) {
       ],
       datasets: [
         {
-          label: "Workout Duration In Minutes",
+          label: "Strongth Duration In Minutes",
           backgroundColor: "red",
           borderColor: "red",
           data: durations,
@@ -151,7 +151,7 @@ function populateChart(data) {
       labels: workouts,
       datasets: [
         {
-          label: "Excercises Performed",
+          label: "Strongings Performed",
           backgroundColor: colors,
           data: durations
         }
@@ -160,7 +160,7 @@ function populateChart(data) {
     options: {
       title: {
         display: true,
-        text: "Excercises Performed"
+        text: "Strongings Performed"
       }
     }
   });
@@ -171,7 +171,7 @@ function populateChart(data) {
       labels: workouts,
       datasets: [
         {
-          label: "Excercises Performed",
+          label: "Strongings Performed",
           backgroundColor: colors,
           data: pounds
         }
@@ -180,7 +180,7 @@ function populateChart(data) {
     options: {
       title: {
         display: true,
-        text: "Excercises Performed"
+        text: "Strongings Performed"
       }
     }
   });
